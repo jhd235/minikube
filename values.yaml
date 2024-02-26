@@ -1,0 +1,31 @@
+dynatrace:
+  apiUrl: "https://sfw93430.live.dynatrace.com/api"
+  # Replace YOUR_ENVIRONMENT_ID with your actual Dynatrace environment ID
+  # For Dynatrace Managed, use: https://your-domain/e/your-environment-id/api
+
+  # API and PaaS tokens are required for communication with Dynatrace.
+  apiToken: "ghactions"
+  paasToken: ${{ secrets.DYNA_TRACE_PAAS_TOKEN }}
+
+# Kubernetes monitoring and automatic tagging are enabled by default.
+kubernetesMonitoring:
+  enabled: true
+
+# Role-Based Access Control (RBAC) settings
+rbac:
+  create: true
+
+# Service account configuration
+serviceAccount:
+  create: true
+  name: ""
+
+# Node selector for pod assignment
+# Use this to specify on which nodes the operator should run
+nodeSelector: {}
+
+# Tolerations for pod assignment
+tolerations: []
+
+# Affinity settings for pod assignment
+affinity: {}
