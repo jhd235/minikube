@@ -24,6 +24,7 @@ jobs:
   
     - name: Check Helm Release "my-dynatrace-operator"
       run: |
-        helm diff release my-dynatrace-operator --namespace dynatrace-helm
+        # helm diff release my-dynatrace-operator --namespace dynatrace-helm
 
         # sfw93430
+        helm diff release my-dynatrace-operator --namespace dynatrace-helm -f values.yaml
