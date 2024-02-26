@@ -17,7 +17,11 @@ jobs:
     - name: Get Nodes
       run: |
         kubectl get nodes
-
-    - name: Check Helm Releases in All Namespaces
+        
+    - name: Install Helm Diff Plugin
       run: |
-        helm list --all-namespaces        
+        helm plugin install https://github.com/databus23/helm-diff || true # Avoid failing if already installed
+  
+    - name: Check Helm Release "my-dynatrace-operator"
+      run: |
+        helm diff release my-dynatrace-operator --namespace dynatrace-helm
