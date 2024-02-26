@@ -23,7 +23,6 @@ jobs:
         helm plugin install https://github.com/databus23/helm-diff || true # Avoid failing if already installed
   
     - name: Check Helm Release "my-dynatrace-operator"
-      run: |        
-        helm diff release my-dynatrace-operator --namespace dynatrace-helm -f values.yaml
+      run: |
         helm diff upgrade --debug --allow-unreleased -n dynatrace-helm -f values.yaml my-dynatrace-operator dynatrace/dynatrace-operator
 
